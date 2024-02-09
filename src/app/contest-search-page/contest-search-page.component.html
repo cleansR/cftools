@@ -1,0 +1,23 @@
+<div class="w-full h-full flex items-center justify-evenly">
+  <div class="w-1/3 h-fit border-solid border-gray-200 border-2 rounded-md">
+    <app-contest-search-settings
+      (onSearchButtonPressed)="searchContests($event)"
+    >
+    </app-contest-search-settings>
+  </div>
+
+  <div class="w-1/2 h-2/3 border-solid border-gray-200 border-2 rounded-md flex items-center justify-evenly">
+
+    <mat-list class="overflow-scroll w-full h-full bg-slate-100" *ngIf="!loading && !error">
+      <h2 mat-subheader class="text-center"> {{contests.length}} {{" results found."}}</h2>
+      <app-contest-list-item *ngFor="let contest of contests"
+        [searchResult]="contest"
+      >
+      </app-contest-list-item>
+    </mat-list>
+
+    <h1 *ngIf="loading"> Loading results </h1>
+    <h1 *ngIf="!loading && error"> Error finding results, check usernames again. </h1>
+
+  </div>
+</div>

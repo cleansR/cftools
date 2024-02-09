@@ -1,0 +1,11 @@
+<mat-list-item class="flex flex-row items-center justify-evenly">
+  <mat-icon matListItemIcon [style]="searchResult?.warning ? '' : 'visibility: hidden'"
+  color="warn" matTooltip="Some users may have solved the problem in another division."> 
+    warning 
+  </mat-icon>
+  <a  [href]="searchResult?.contest?.url" [ngClass]="mouseHover ? 'text-lime-500' : ''"
+    (mouseenter)="mouseHover = true;" (mouseleave)="mouseHover = false;"
+    > {{searchResult?.contest?.name}}
+  </a>
+</mat-list-item>
+<mat-divider></mat-divider>
